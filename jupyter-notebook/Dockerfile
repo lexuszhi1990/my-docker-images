@@ -4,7 +4,7 @@ LABEL maintainer "david lexuszhi1990@gmail.com"
 
 
 # Install dependencies
-ADD aliyun-debian-stretch.sources.list /etc/apt/sources.list
+ADD sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
