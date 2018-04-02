@@ -5,14 +5,9 @@ LABEL maintainer "david lexuszhi1990@gmail.com"
 # Install dependencies
 ADD ../sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
-    libblas-dev \
-    liblapack-dev\
-    libatlas-base-dev \
-    mecab \
-    mecab-naist-jdic \
-    libmecab-dev \
-    gfortran \
-    libav-tools \
+    libopenblas-dev \
+    liblapack-dev \
+    libgfortran3 \
     python3-setuptools \
     libopencv-dev
 
@@ -22,18 +17,10 @@ RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
         jupyter \
         ipykernel \
         scipy \
-        simpy \
         matplotlib \
         numpy \
-        pandas \
-        plotly \
-        sympy \
-        mecab-python3 \
-        librosa \
         Pillow \
-        h5py \
         opencv-python \
-        google-api-python-client \
         && \
     python -m ipykernel.kernelspec
 
