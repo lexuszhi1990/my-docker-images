@@ -3,6 +3,7 @@ FROM python:3.6.5-stretch
 LABEL maintainer "david lexuszhi1990@gmail.com"
 
 # Install dependencies
+ADD ../sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
     libblas-dev \
     liblapack-dev\
@@ -12,7 +13,8 @@ RUN apt-get update && apt-get install -y \
     libmecab-dev \
     gfortran \
     libav-tools \
-    python3-setuptools
+    python3-setuptools \
+    libopencv-dev
 
 
 # Install Python library for Data Science
