@@ -1,5 +1,5 @@
 FROM jupyter/scipy-notebook:latest
-MAINTAINER david
+MAINTAINER david lexuszhi1990@gmail.com
 
 RUN pip install -i https://mirrors.aliyun.com/pypi/simple/ opencv-python
 
