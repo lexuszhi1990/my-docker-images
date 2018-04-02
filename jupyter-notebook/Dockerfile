@@ -16,7 +16,7 @@ RUN apt-get update && apt-get install -y \
 
 
 # Install Python library for Data Science
-RUN pip --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/ install \
+RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
         jupyter \
         ipykernel \
         scipy \
