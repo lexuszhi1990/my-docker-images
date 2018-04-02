@@ -1,20 +1,19 @@
 # TensorFlow & scikit-learn with Python3.6
-FROM python:3.6.4-stretch
+FROM ubuntu:18.04
 LABEL maintainer "david lexuszhi1990@gmail.com"
 
-
 # Install dependencies
-ADD sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
-RUN apt-get update && apt-get install -y \
-    libopenblas-dev \
-    liblapack-dev \
-    libgfortran3 \
+RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
+
+RUN apt-get update --fix-missing && apt-get install -y \
+    python-pip \
+    python3-pip \
     python3-setuptools \
     libopencv-dev
 
 
 # Install Python library for Data Science
-RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
+RUN pip3 install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
         jupyter \
         ipykernel \
         scipy \
@@ -23,7 +22,7 @@ RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
         Pillow \
         opencv-python \
         && \
-    python -m ipykernel install --name python3.6
+    python3.6 -m ipykernel install --name python3.6
 
 # Set up Jupyter Notebook config
 ENV CONFIG /root/.jupyter/jupyter_notebook_config.py
