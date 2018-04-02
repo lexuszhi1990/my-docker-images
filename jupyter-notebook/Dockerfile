@@ -1,5 +1,5 @@
 # TensorFlow & scikit-learn with Python3.6
-FROM python:3.6
+FROM python:3.6.5-stretch
 LABEL maintainer "david lexuszhi1990@gmail.com"
 
 # Install dependencies
