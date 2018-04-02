@@ -1,9 +1,9 @@
 # TensorFlow & scikit-learn with Python3.6
-FROM python:3.6.5-stretch
+FROM python:3.6.4-stretch
 LABEL maintainer "david lexuszhi1990@gmail.com"
 
 # Install dependencies
-ADD ../sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
+ADD sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
