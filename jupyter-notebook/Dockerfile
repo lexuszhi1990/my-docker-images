@@ -5,11 +5,16 @@ LABEL maintainer "david lexuszhi1990@gmail.com"
 # Install dependencies
 RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
-RUN apt-get update --fix-missing && apt-get install -y \
+RUN apt-get update --fix-missing && \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y \
     python-pip \
     python3-pip \
     python3-setuptools \
     libopencv-dev
+
+
+# https://stackoverflow.com/questions/8671308/non-interactive-method-for-dpkg-reconfigure-tzdata
+RUN echo "Asia/Hong_Kong" > /etc/timezone && dpkg-reconfigure -f noninteractive tzdata
 
 
 # Install Python library for Data Science
