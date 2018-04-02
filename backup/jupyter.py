@@ -38,3 +38,15 @@ Installed kernelspec python3 in /usr/local/share/jupyter/kernels/python3
 Available kernels:
   python2    /usr/lib/python2.7/site-packages/ipykernel/resources
   python3    /usr/local/share/jupyter/kernels/python3
+
+
+RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
+        jupyter \
+        ipykernel \
+        scipy \
+        matplotlib \
+        numpy \
+        Pillow \
+        opencv-python \
+        && \
+    python -m ipykernel install --name python2.7

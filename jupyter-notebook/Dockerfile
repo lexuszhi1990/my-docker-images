@@ -28,16 +28,7 @@ RUN pip3 install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
         opencv-python \
         && \
     python3.6 -m ipykernel install --name python3.6
-RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
-        jupyter \
-        ipykernel \
-        scipy \
-        matplotlib \
-        numpy \
-        Pillow \
-        opencv-python \
-        && \
-    python -m ipykernel install --name python2.7
+
 
 # Set up Jupyter Notebook config
 ENV CONFIG /root/.jupyter/jupyter_notebook_config.py
