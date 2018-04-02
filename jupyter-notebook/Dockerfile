@@ -4,7 +4,7 @@ LABEL maintainer "david lexuszhi1990@gmail.com"
 
 
 # Install dependencies
-# ADD sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
+ADD sources/aliyun-debian-stretch.sources.list /etc/apt/sources.list
 RUN apt-get update && apt-get install -y \
     libopenblas-dev \
     liblapack-dev \
@@ -38,9 +38,6 @@ RUN echo "c.NotebookApp.ip = '0.0.0.0'" >>${CONFIG} && \
     echo "c.MultiKernelManager.default_kernel_name = 'python3'" >>${CONFIG}
 
 RUN echo "c.InteractiveShellApp.exec_lines = ['%matplotlib inline']" >>${CONFIG_IPYTHON}
-
-# Copy sample notebooks.
-COPY notebooks /notebooks
 
 # port
 EXPOSE 8888
