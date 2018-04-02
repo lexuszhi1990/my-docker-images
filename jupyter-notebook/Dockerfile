@@ -23,7 +23,7 @@ RUN pip install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
         Pillow \
         opencv-python \
         && \
-    python -m ipykernel.kernelspec
+    python -m ipykernel install --name python3.6
 
 # Set up Jupyter Notebook config
 ENV CONFIG /root/.jupyter/jupyter_notebook_config.py
@@ -40,7 +40,7 @@ RUN echo "c.NotebookApp.ip = '0.0.0.0'" >>${CONFIG} && \
 RUN echo "c.InteractiveShellApp.exec_lines = ['%matplotlib inline']" >>${CONFIG_IPYTHON}
 
 # port
-EXPOSE 8888
+EXPOSE 8888 8888
 
 # Run Jupyter Notebook
 WORKDIR "/notebooks"
