@@ -45,7 +45,7 @@ RUN echo "c.NotebookApp.ip = '0.0.0.0'" >>${CONFIG} && \
 RUN echo "c.InteractiveShellApp.exec_lines = ['%matplotlib inline']" >>${CONFIG_IPYTHON}
 
 # port
-EXPOSE 8888 8888
+EXPOSE 8888
 
 # Run Jupyter Notebook
 WORKDIR "/notebooks"
