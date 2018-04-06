@@ -7,10 +7,8 @@ RUN sed -i 's/archive.ubuntu.com/mirrors.aliyun.com/g' /etc/apt/sources.list
 
 RUN apt-get update --fix-missing && \
     DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    python-pip \
-    python3-pip \
-    python3-setuptools \
-    libopencv-dev
+    python-pip python3-pip python3-setuptools \
+    libopencv-dev tmux
 
 
 # https://stackoverflow.com/questions/8671308/non-interactive-method-for-dpkg-reconfigure-tzdata
@@ -18,9 +16,9 @@ RUN echo "Asia/Hong_Kong" > /etc/timezone && dpkg-reconfigure -f noninteractive 
 
 
 # Install Python library for Data Science
-RUN pip3 install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
-        jupyter \
-        ipykernel \
+RUN pip3.6 install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
+        cython \
+        argparse \
         scipy \
         matplotlib \
         numpy \
@@ -28,6 +26,7 @@ RUN pip3 install --no-cache-dir -i https://mirrors.aliyun.com/pypi/simple/  \
         opencv-python \
         && \
     python3.6 -m ipykernel install --name python3.6
+# RUN jupyter kernelspec list
 
 
 # Set up Jupyter Notebook config
